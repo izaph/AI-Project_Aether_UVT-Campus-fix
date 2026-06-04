@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UVT | Raportare Incident</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4 text-gray-800">
+    <div class="max-w-md w-full bg-white border border-gray-300 shadow-sm rounded-sm">
+        
+        <div class="bg-blue-800 p-5 text-center border-b-4 border-blue-600">
+            <h1 class="text-xl font-bold text-white uppercase tracking-wide">Campus Fix</h1>
+            <p class="text-blue-200 text-xs mt-1 font-semibold uppercase">Universitatea de Vest din Timișoara</p>
+        </div>
+
+        <div class="p-6">
+            <div id="success-message" class="hidden bg-green-50 border border-green-300 p-4 text-center rounded-sm">
+                <i class="fas fa-check-circle text-2xl text-green-700 mb-2"></i>
+                <h3 class="text-md font-bold text-green-800">Incident Înregistrat</h3>
+                <p class="text-sm text-green-700 mt-1">Tichetul a fost salvat în baza de date și va fi analizat de modelul AI.</p>
+                <button onclick="location.reload()" class="mt-4 w-full text-sm font-bold text-green-800 bg-green-200 py-2 rounded-sm hover:bg-green-300 border border-green-400 transition-colors">Formular Nou</button>
+            </div>
+
+            <form id="ticket-form" onsubmit="trimiteTichet(event)" class="space-y-4">
+                
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 uppercase mb-1">ID Echipament / Locație</label>
+                    <input type="text" id="input-locatie" value="Sala 029 - Proiector" readonly class="w-full p-2.5 bg-gray-100 border border-gray-300 rounded-sm text-gray-600 focus:outline-none cursor-not-allowed text-sm">
+                    <p class="text-[10px] text-gray-500 mt-1">Sistemul a preluat automat datele din codul QR.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Categorie Incident</label>
+                    <select id="input-categorie" class="w-full p-2.5 bg-white border border-gray-300 rounded-sm text-gray-700 text-sm focus:ring-1 focus:ring-blue-600 focus:border-blue-600">
+                        <option value="Necunoscut">-- Lăsați AI-ul să clasifice --</option>
+                        <option value="IT">Infrastructură IT / Rețea</option>
+                        <option value="Admin">Administrativ / Mobilier</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-gray-600 uppercase mb-1">Descriere Problemă *</label>
+                    <textarea id="input-descriere" rows="4" required placeholder="Detaliați defecțiunea observată..." class="w-full p-2.5 bg-white border border-gray-300 rounded-sm text-gray-700 text-sm focus:ring-1 focus:ring-blue-600 focus:border-blue-600 resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-blue-700 text-white font-bold py-2.5 px-4 rounded-sm hover:bg-blue-800 border border-blue-900 transition-colors text-sm mt-2 shadow-sm">
+                    Trimite Raportul
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        async function trimiteTichet(event) {
+            event.preventDefault(); // Oprim reîncărcarea paginii
+            
+            // 1. Colectăm datele
+            const dateTichet = {
+                locatie: document.getElementById('input-locatie').value,
+                categorie: document.getElementById('input-categorie').value,
+                descriere: document.getElementById('input-descriere').value
+            };
+
+            // 2. Le trimitem către API-ul PHP
+            try {
+                await fetch('api.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dateTichet)
+                });
+
+                // 3. Afișăm mesajul de succes
+                document.getElementById('ticket-form').classList.add('hidden');
+                document.getElementById('success-message').classList.remove('hidden');
+            } catch (eroare) {
+                alert("Eroare de conexiune. Asigură-te că serverul PHP rulează!");
+            }
+        }
+    </script>
+</body>
+</html>
