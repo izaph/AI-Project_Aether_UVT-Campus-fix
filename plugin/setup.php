@@ -1,7 +1,14 @@
 <?php
 function plugin_init_uvtcampusfix() {
-    global $PLUGIN_HOOKS;
+    global $PLUGIN_HOOKS, $CFG_GLPI;
+
     $PLUGIN_HOOKS['csrf_compliant']['uvtcampusfix'] = true;
+
+    if (Session::haveRight('config', READ)) {
+        $PLUGIN_HOOKS['menu_toadd']['uvtcampusfix'] = [
+            'tools' => 'PluginUvtcampusfixMenu'
+        ];
+    }
 }
 
 function plugin_version_uvtcampusfix() {
