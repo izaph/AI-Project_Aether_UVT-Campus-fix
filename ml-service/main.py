@@ -38,7 +38,7 @@ def classify(req: TicketRequest):
     confidence = float(probs[idx])
     
     # Only suggest if confidence above threshold
-    if confidence < 0.60:
+   if confidence < 0.35:
         return {
             "category": "Necunoscut",
             "confidence": confidence,
