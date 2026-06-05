@@ -22,7 +22,9 @@ services:
       - db-data:/var/lib/mysql
 
   ml-service:
-    build: ../ml-service
+    build:
+      context: ../ml-service
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
 
