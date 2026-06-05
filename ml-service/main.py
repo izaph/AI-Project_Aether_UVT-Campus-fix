@@ -5,7 +5,6 @@ import os
 
 app = FastAPI()
 
-# Load model at startup
 MODEL_PATH = "model.joblib"
 model = None
 
@@ -26,25 +25,23 @@ class ClassificationResponse(BaseModel):
 @app.post("/classify", response_model=ClassificationResponse)
 def classify(req: TicketRequest):
     if model is None:
-        # Graceful degradation - no model available
         return {
             "category": "Necunoscut",
             "confidence": 0.0,
             "ai_available": False
         }
-    
+
     probs = model.predict_proba([req.description])[0]
     idx = probs.argmax()
     confidence = float(probs[idx])
-    
-    # Only suggest if confidence above threshold
-   if confidence < 0.35:
+
+    if confidence < 0.35:
         return {
             "category": "Necunoscut",
             "confidence": confidence,
             "ai_available": True
         }
-    
+
     return {
         "category": model.classes_[idx],
         "confidence": confidence,
