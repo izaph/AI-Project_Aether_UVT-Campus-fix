@@ -21,4 +21,12 @@ function plugin_uvtcampusfix_check_prerequisites() {
 
 function plugin_uvtcampusfix_check_config() {
     return true;
-} 
+}
+
+function plugin_uvtcampusfix_install() {
+    return true;
+}
+
+function plugin_uvtcampusfix_uninstall() {
+    return true;
+}
