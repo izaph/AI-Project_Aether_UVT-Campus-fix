@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 # Load dataset
-df = pd.read_csv("../glpi-config/dataset_tichete.csv")
+df = pd.read_csv("dataset_tichete.csv")
 
 # Split
 X_train, X_test, y_train, y_test = train_test_split(
