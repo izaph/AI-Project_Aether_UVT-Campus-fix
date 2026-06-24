@@ -1,0 +1,39 @@
+<?php
+function plugin_init_uvtcampusfix() {
+    global $PLUGIN_HOOKS, $CFG_GLPI;
+
+    $PLUGIN_HOOKS['csrf_compliant']['uvtcampusfix'] = true;
+
+    if (Session::haveRight('config', READ)) {
+        $PLUGIN_HOOKS['menu_toadd']['uvtcampusfix'] = [
+            'tools' => 'PluginUvtcampusfixMenu'
+        ];
+    }
+}
+
+function plugin_version_uvtcampusfix() {
+    return [
+        'name'         => 'UVT Campus Fix',
+        'version'      => '1.0.0',
+        'author'       => 'Team Aether',
+        'license'      => 'GPLv3',
+        'homepage'     => 'https://github.com/izaph/AI-Project_Aether_UVT-Campus-fix',
+        'requirements' => ['glpi' => ['min' => '10.0']]
+    ];
+}
+
+function plugin_uvtcampusfix_check_prerequisites() {
+    return true;
+}
+
+function plugin_uvtcampusfix_check_config() {
+    return true;
+}
+
+function plugin_uvtcampusfix_install() {
+    return true;
+}
+
+function plugin_uvtcampusfix_uninstall() {
+    return true;
+}

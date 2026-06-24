@@ -16,7 +16,7 @@ Html::header('UVT Campus Fix', '', 'plugins', 'uvtcampusfix');
             <p>Echipa: <strong>Team Aether</strong></p>
             <p>Status: <span class="badge bg-success">Activ</span></p>
             <hr>
-            <a href="<?php echo $CFG_GLPI['root_doc']; ?>/front/ticket.form.php" class="btn btn-warning btn-lg">
+            <a href="report.php" class="btn btn-primary btn-lg">
                 <i class="fas fa-plus-circle"></i> Raportează o Problemă în Campus
             </a>
         </div>
