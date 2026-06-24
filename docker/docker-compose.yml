@@ -1,15 +1,15 @@
-version: "3.8"
-
 services:
   glpi:
     image: diouxx/glpi:latest
     ports:
       - "8080:80"
     volumes:
-      - ./plugin:/var/www/html/glpi/plugins/uvtcampusfix
+      - ../plugin:/var/www/html/glpi/plugins/uvtcampusfix
+      - glpi-data:/var/www/html/glpi
       - glpi-files:/var/www/html/glpi/files
     depends_on:
       - db
+      - ml-service
 
   db:
     image: mariadb:10.11
@@ -29,5 +29,6 @@ services:
       - "8000:8000"
 
 volumes:
+  glpi-data:
   glpi-files:
   db-data:

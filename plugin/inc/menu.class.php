@@ -1,5 +1,4 @@
 <?php
-
 class PluginUvtcampusfixMenu extends CommonGLPI {
 
     static function getMenuName() {
@@ -12,16 +11,28 @@ class PluginUvtcampusfixMenu extends CommonGLPI {
         $menu['page']  = '/plugins/uvtcampusfix/front/index.php';
         $menu['icon']  = 'fas fa-tools';
 
-        $menu['options']['main'] = [
+        $menu['options']['ticket'] = [
+            'title' => 'Raportează Incident',
+            'page'  => '/plugins/uvtcampusfix/front/ticket.php',
+            'icon'  => 'fas fa-exclamation-triangle',
+        ];
+
+        $menu['options']['dashboard'] = [
             'title' => 'Dashboard',
-            'page'  => '/plugins/uvtcampusfix/front/index.php',
-            'icon'  => 'fas fa-chart-bar'
+            'page'  => '/plugins/uvtcampusfix/front/dashboard.php',
+            'icon'  => 'fas fa-chart-bar',
+        ];
+
+        $menu['options']['qr'] = [
+            'title' => 'Generator QR',
+            'page'  => '/plugins/uvtcampusfix/front/qr.php',
+            'icon'  => 'fas fa-qrcode',
         ];
 
         return $menu;
     }
 
     static function canView(): bool {
-        return (bool)Session::haveRight('config', READ);
+        return Session::haveRight('config', READ);
     }
 }

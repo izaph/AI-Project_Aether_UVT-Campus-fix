@@ -119,3 +119,66 @@ conexiune internet lenta,Retea
 proiectorul nu porneste,IT
 ecranul este negru,IT
 scaun defect,Administrativ
+Laptopul din sala 108 nu detectează rețeaua wireless,Retea
+Proiectorul din amfiteatrul mare se oprește singur după 10 minute,IT
+Mânerul de la ușa principală a facultății s-a rupt,Administrativ
+Conexiunea VPN a universității nu funcționează din rețeaua eduroam,Retea
+Scanner-ul din biroul administrativ nu mai scanează,IT
+Covorul de la intrarea în facultate este rupt și periculos,Administrativ
+Access point-ul din sala de conferințe are firmware-ul blocat,Retea
+Unitatea externă de hard disk de la catedră nu este recunoscută,IT
+Scurgerea de la chiuveta din laboratorul de chimie e înfundată,Administrativ
+Portul ethernet din sala de seminarii nu are conectivitate,Retea
+Camera de supraveghere din parcare nu mai transmite imagine,IT
+Becurile din holul de la etajul 2 s-au ars toate,Administrativ
+Rețeaua 5GHz nu este vizibilă pe dispozitivele din sala A05,Retea
+Difuzorul de la sistemul de adresare publică scoate zgomot,IT
+Mochetă murdară și pătată în biroul decanului,Administrativ
+Fibra optică din sala serverelor are conectorul deteriorat,Retea
+Calculatorul de la laboratorul de biologie afișează erori BIOS,IT
+Geamul termopan din sala 301 s-a deslipit și e condensare pe el,Administrativ
+Hotspot-ul portabil al universității nu se mai conectează,Retea
+Căștile de la laboratorul de limbi străine sunt defecte,IT
+Gresia de pe hol e crăpată și cineva se poate împiedica,Administrativ
+Switch-ul din dulapul de rețea de la etajul 1 s-a supraîncălzit,Retea
+Tableta grafică de la sala de design nu răspunde la stylus,IT
+Balustrada de la scara principală se mișcă și e instabilă,Administrativ
+Nu merge ping-ul către gateway-ul rețelei din clădirea B,Retea
+Stația meteo de pe acoperiș nu mai transmite date la server,IT
+Termostatul din sala de cursuri indică temperatura greșit,Administrativ
+Firewall-ul blochează accesul la resurse educaționale legitime,Retea
+Webcam-ul din sala de videoconferințe are imaginea înghețată,IT
+Tavanul fals din biroul secretariatului e denivelat și pare instabil,Administrativ
+Serverul DHCP nu distribuie adrese IP în clădirea nouă,Retea
+Hard disk-ul de la PC-ul 7 din laborator face zgomote de clicăit,IT
+Peretele din sala 110 are mucegai în colțul de sus,Administrativ
+Patch panel-ul din rack-ul principal are porturi oxidate,Retea
+Proiectorul interactiv din sala smart nu răspunde la atingere,IT
+Rampa de acces pentru persoane cu dizabilități e alunecoasă,Administrativ
+Certificatul SSL al portalului universitar a expirat,Retea
+Imprimanta 3D din laboratorul de prototipare dă eroare la calibrare,IT
+Extinctorul din holul principal a expirat și trebuie înlocuit,Administrativ
+Antena Wi-Fi externă de pe clădirea C este dezaliniată,Retea
+Stația de andocare de la sala de ședințe nu detectează monitorul extern,IT
+Oglinda de la baia fetelor de la etajul 1 este crăpată,Administrativ
+Cablul de fibră optică dintre clădirile A și B are atenuare mare,Retea
+Boxele Bluetooth din sala de evenimente nu se împerechează,IT
+Parcarea din fața facultății are gropi mari pe care trebuie reparate,Administrativ
+Nu funcționează autentificarea 802.1X pe portul ethernet din birou,Retea
+Alimentatorul de pe laptop-ul de prezentare s-a ars,IT
+Rafturile din depozitul de materiale sunt instabile,Administrativ
+Latența pe rețeaua internă depășește 200ms între etaje,Retea
+Placa video de la calculatorul din sala de editare video dă artefacte,IT
+Storurile automate din sala smart nu mai răspund la telecomandă,Administrativ
+DNS-ul intern nu rezolvă numele serverelor din rețeaua locală,Retea
+UPS-ul din camera serverelor bipăie continuu și arată eroare,IT
+Scaunele din amfiteatrul A03 au șuruburile slăbite și se mișcă,Administrativ
+Portul de uplink pe switch-ul principal se deconectează periodic,Retea
+Plotter-ul din laboratorul de arhitectură are capul de printare înfundat,IT
+Perdelele din sala de cursuri sunt rupte și nu se mai trag,Administrativ
+Access point-ul de pe holul bibliotecii are semnal foarte slab,Retea
+Panoul de comandă al sistemului de climatizare centrală nu răspunde,IT
+Baia de la parter are o scurgere la toaletă care nu se oprește,Administrativ
+NAS-ul din biroul profesoral nu mai este accesibil din rețea,Retea
+Monitorul interactiv din sala de prezentări are pixeli morți,IT
+Gardul din spatele campusului este deteriorat în zona parcării,Administrativ
