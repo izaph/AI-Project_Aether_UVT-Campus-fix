@@ -89,21 +89,30 @@ Html::header('Raportare Incident', '', 'plugins', 'uvtcampusfix');
 
         <div class="card-body">
             <!-- Success message (hidden initially) -->
-            <div id="successMsg" class="alert alert-success d-none">
-                <h5><i class="fas fa-check-circle me-2"></i>Tichet creat cu succes!</h5>
-                <p>Tichetul <strong>#<span id="ticketNum"></span></strong> a fost înregistrat.</p>
-                <p id="aiInfo" class="mb-0 d-none">
-                    <i class="fas fa-robot me-1"></i>
-                    Categorie sugerată de AI: <strong><span id="aiCatResult"></span></strong>
-                    (încredere: <span id="aiConfResult"></span>%)
-                </p>
+            <div id="successMsg" class="d-none">
+                <div class="text-center py-4">
+                    <div style="font-size: 48px; color: #28a745; margin-bottom: 16px;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h4 class="mb-2">Tichet creat cu succes!</h4>
+                    <p class="text-muted mb-1">Tichetul <strong>#<span id="ticketNum"></span></strong> a fost înregistrat în sistem.</p>
+                    <p id="aiInfo" class="d-none mb-0">
+                        <span class="badge bg-info text-dark" style="font-size: 13px; padding: 6px 12px;">
+                            <i class="fas fa-robot me-1"></i>
+                            Categorie AI: <strong><span id="aiCatResult"></span></strong>
+                            — încredere <span id="aiConfResult"></span>%
+                        </span>
+                    </p>
+                </div>
                 <hr>
-                <a href="ticket.php" class="btn btn-outline-success">
-                    <i class="fas fa-plus me-1"></i>Raportează altă problemă
-                </a>
-                <a id="viewTicketLink" href="#" class="btn btn-outline-primary ms-2">
-                    <i class="fas fa-eye me-1"></i>Vezi tichetul în GLPI
-                </a>
+                <div class="d-flex justify-content-center gap-3">
+                    <a href="ticket.php" class="btn btn-success">
+                        <i class="fas fa-plus me-2"></i>Raportează altă problemă
+                    </a>
+                    <a id="viewTicketLink" href="#" class="btn btn-outline-primary">
+                        <i class="fas fa-eye me-2"></i>Vezi tichetul în GLPI
+                    </a>
+                </div>
             </div>
 
             <!-- Error message -->

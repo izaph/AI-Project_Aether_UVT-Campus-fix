@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>UVT Campus Fix — Gantt Chart</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; padding: 40px; }
+        h2 { text-align: center; margin-bottom: 8px; font-size: 18px; color: #333; }
+        .subtitle { text-align: center; font-size: 12px; color: #888; margin-bottom: 30px; }
+        .gantt { max-width: 950px; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 12px; }
+        th { background: #1a237e; color: #fff; padding: 10px 8px; text-align: center; font-weight: 600; }
+        th:first-child { text-align: left; min-width: 200px; }
+        td { padding: 8px; border-bottom: 1px solid #e0e0e0; vertical-align: middle; }
+        td:first-child { font-weight: 600; color: #333; font-size: 11px; }
+        .bar-cell { position: relative; height: 28px; }
+        .bar-planned { position: absolute; height: 12px; top: 2px; border-radius: 3px; background: #90CAF9; border: 1px solid #42A5F5; }
+        .bar-actual { position: absolute; height: 12px; top: 16px; border-radius: 3px; background: #66BB6A; border: 1px solid #43A047; }
+        .week-header { font-size: 10px; }
+        .legend { display: flex; justify-content: center; gap: 30px; margin-top: 20px; font-size: 12px; color: #555; }
+        .legend-item { display: flex; align-items: center; gap: 6px; }
+        .legend-box { width: 20px; height: 12px; border-radius: 3px; }
+        .legend-planned { background: #90CAF9; border: 1px solid #42A5F5; }
+        .legend-actual { background: #66BB6A; border: 1px solid #43A047; }
+        .member { font-size: 10px; color: #888; font-weight: normal; }
+        tr:nth-child(even) { background: #fafafa; }
+    </style>
+</head>
+<body>
+    <h2>Fig. 3 — Gantt Chart: Planned vs Actual</h2>
+    <p class="subtitle">Perioada: Martie – Iunie 2026 | Team Aether</p>
+
+    <div class="gantt">
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th class="week-header">Mar<br>S1-S2</th>
+                    <th class="week-header">Mar<br>S3-S4</th>
+                    <th class="week-header">Apr<br>S1-S2</th>
+                    <th class="week-header">Apr<br>S3-S4</th>
+                    <th class="week-header">Mai<br>S1-S2</th>
+                    <th class="week-header">Mai<br>S3-S4</th>
+                    <th class="week-header">Iun<br>S1-S2</th>
+                    <th class="week-header">Iun<br>S3-S4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Analiză și Design (Annex 2)<br><span class="member">Toți</span></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Setup Docker + GLPI<br><span class="member">Raian</span></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;width:50%;"></div></div></td>
+                    <td></td><td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Dataset + Model ML<br><span class="member">Denis</span></td>
+                    <td></td><td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Prototipuri UI<br><span class="member">Izabella</span></td>
+                    <td></td><td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td></td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Plugin GLPI (scaffolding)<br><span class="member">Horia, Herlo</span></td>
+                    <td></td><td></td><td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Annex 3 (Beta)<br><span class="member">Toți</span></td>
+                    <td></td><td></td><td></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td></td><td></td>
+                </tr>
+                <tr>
+                    <td>Plugin ↔ ML Integration<br><span class="member">Raian</span></td>
+                    <td></td><td></td><td></td><td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-actual" style="left:0;width:50%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>QR Workflow<br><span class="member">Horia, Herlo</span></td>
+                    <td></td><td></td><td></td><td></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-actual" style="left:0;width:50%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>Dashboard Analytics<br><span class="member">Izabella</span></td>
+                    <td></td><td></td><td></td><td></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-actual" style="left:0;width:50%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>Config GLPI + Locații<br><span class="member">Izabella, Raian</span></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                    <td><div class="bar-cell"><div class="bar-actual" style="left:0;width:50%;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>Acceptance Tests<br><span class="member">Raian</span></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                </tr>
+                <tr>
+                    <td>Documentație (Annex 4)<br><span class="member">Toți</span></td>
+                    <td></td><td></td><td></td><td></td><td></td><td></td>
+                    <td></td>
+                    <td><div class="bar-cell"><div class="bar-planned" style="left:0;right:0;"></div><div class="bar-actual" style="left:0;right:0;"></div></div></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="legend">
+            <div class="legend-item"><div class="legend-box legend-planned"></div> Planificat</div>
+            <div class="legend-item"><div class="legend-box legend-actual"></div> Actual</div>
+        </div>
+    </div>
+</body>
+</html>

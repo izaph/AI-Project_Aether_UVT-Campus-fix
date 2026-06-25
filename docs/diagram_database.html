@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>UVT Campus Fix — Structura Bazei de Date</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; padding: 40px; }
+        h2 { text-align: center; margin-bottom: 30px; font-size: 18px; color: #333; }
+        .diagram { max-width: 950px; margin: 0 auto; position: relative; }
+        .tables { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .table-box { border: 2px solid #333; border-radius: 8px; min-width: 200px; background: #fff; overflow: hidden; }
+        .table-header { background: #1a237e; color: #fff; padding: 10px 14px; font-weight: bold; font-size: 13px; display: flex; align-items: center; gap: 8px; }
+        .table-header .icon { font-size: 16px; }
+        .table-rows { padding: 0; }
+        .table-row { padding: 6px 14px; font-size: 11px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; }
+        .table-row:last-child { border-bottom: none; }
+        .col-name { font-weight: 600; color: #333; }
+        .col-type { color: #888; font-size: 10px; }
+        .pk { color: #FFD600; font-weight: bold; margin-right: 4px; font-size: 12px; }
+        .fk { color: #E91E63; font-weight: bold; margin-right: 4px; font-size: 12px; }
+        .relations { margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 8px; border: 1px solid #ddd; }
+        .relations h3 { font-size: 14px; margin-bottom: 12px; color: #333; }
+        .rel { font-size: 12px; color: #555; margin-bottom: 6px; padding-left: 16px; line-height: 1.6; }
+        .rel::before { content: "→"; color: #1a237e; font-weight: bold; margin-right: 8px; }
+        .note { text-align: center; margin-top: 20px; font-size: 11px; color: #999; font-style: italic; }
+        .section-label { text-align: center; font-size: 12px; color: #666; margin-bottom: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+    <h2>Fig. 2 — Structura Bazei de Date (Tabele Principale GLPI)</h2>
+
+    <div class="diagram">
+        <div class="section-label">Tabele utilizate de plugin-ul UVT Campus Fix</div>
+
+        <div class="tables">
+            <!-- glpi_tickets -->
+            <div class="table-box">
+                <div class="table-header"><span class="icon">🎫</span> glpi_tickets</div>
+                <div class="table-rows">
+                    <div class="table-row"><span><span class="pk">🔑</span><span class="col-name">id</span></span> <span class="col-type">INT PK</span></div>
+                    <div class="table-row"><span class="col-name">name</span> <span class="col-type">VARCHAR(255)</span></div>
+                    <div class="table-row"><span class="col-name">content</span> <span class="col-type">LONGTEXT</span></div>
+                    <div class="table-row"><span><span class="fk">🔗</span><span class="col-name">itilcategories_id</span></span> <span class="col-type">INT FK</span></div>
+                    <div class="table-row"><span><span class="fk">🔗</span><span class="col-name">locations_id</span></span> <span class="col-type">INT FK</span></div>
+                    <div class="table-row"><span><span class="fk">🔗</span><span class="col-name">users_id_recipient</span></span> <span class="col-type">INT FK</span></div>
+                    <div class="table-row"><span class="col-name">status</span> <span class="col-type">INT (1-6)</span></div>
+                    <div class="table-row"><span class="col-name">urgency</span> <span class="col-type">INT (1-5)</span></div>
+                    <div class="table-row"><span class="col-name">type</span> <span class="col-type">INT</span></div>
+                    <div class="table-row"><span class="col-name">date</span> <span class="col-type">DATETIME</span></div>
+                    <div class="table-row"><span class="col-name">solvedate</span> <span class="col-type">DATETIME</span></div>
+                    <div class="table-row"><span class="col-name">closedate</span> <span class="col-type">DATETIME</span></div>
+                    <div class="table-row"><span class="col-name">is_deleted</span> <span class="col-type">TINYINT</span></div>
+                </div>
+            </div>
+
+            <!-- Middle column -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- glpi_itilcategories -->
+                <div class="table-box">
+                    <div class="table-header" style="background: #E65100;"><span class="icon">🏷️</span> glpi_itilcategories</div>
+                    <div class="table-rows">
+                        <div class="table-row"><span><span class="pk">🔑</span><span class="col-name">id</span></span> <span class="col-type">INT PK</span></div>
+                        <div class="table-row"><span class="col-name">name</span> <span class="col-type">VARCHAR(255)</span></div>
+                        <div class="table-row"><span class="col-name">completename</span> <span class="col-type">TEXT</span></div>
+                        <div class="table-row"><span class="col-name">is_incident</span> <span class="col-type">TINYINT</span></div>
+                        <div class="table-row"><span class="col-name">is_request</span> <span class="col-type">TINYINT</span></div>
+                    </div>
+                </div>
+
+                <!-- glpi_locations -->
+                <div class="table-box">
+                    <div class="table-header" style="background: #2E7D32;"><span class="icon">📍</span> glpi_locations</div>
+                    <div class="table-rows">
+                        <div class="table-row"><span><span class="pk">🔑</span><span class="col-name">id</span></span> <span class="col-type">INT PK</span></div>
+                        <div class="table-row"><span class="col-name">name</span> <span class="col-type">VARCHAR(255)</span></div>
+                        <div class="table-row"><span class="col-name">completename</span> <span class="col-type">TEXT</span></div>
+                        <div class="table-row"><span><span class="fk">🔗</span><span class="col-name">locations_id</span></span> <span class="col-type">INT FK (parent)</span></div>
+                        <div class="table-row"><span class="col-name">level</span> <span class="col-type">INT</span></div>
+                        <div class="table-row"><span class="col-name">building</span> <span class="col-type">VARCHAR(255)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column -->
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <!-- glpi_users -->
+                <div class="table-box">
+                    <div class="table-header" style="background: #6A1B9A;"><span class="icon">👤</span> glpi_users</div>
+                    <div class="table-rows">
+                        <div class="table-row"><span><span class="pk">🔑</span><span class="col-name">id</span></span> <span class="col-type">INT PK</span></div>
+                        <div class="table-row"><span class="col-name">name</span> <span class="col-type">VARCHAR(255)</span></div>
+                        <div class="table-row"><span class="col-name">realname</span> <span class="col-type">VARCHAR(255)</span></div>
+                        <div class="table-row"><span class="col-name">firstname</span> <span class="col-type">VARCHAR(255)</span></div>
+                        <div class="table-row"><span><span class="fk">🔗</span><span class="col-name">profiles_id</span></span> <span class="col-type">INT FK</span></div>
+                        <div class="table-row"><span class="col-name">language</span> <span class="col-type">VARCHAR(10)</span></div>
+                    </div>
+                </div>
+
+                <!-- glpi_profiles -->
+                <div class="table-box">
+                    <div class="table-header" style="background: #4527A0;"><span class="icon">🛡️</span> glpi_profiles</div>
+                    <div class="table-rows">
+                        <div class="table-row"><span><span class="pk">🔑</span><span class="col-name">id</span></span> <span class="col-type">INT PK</span></div>
+                        <div class="table-row"><span class="col-name">name</span> <span class="col-type">VARCHAR(255)</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relationships -->
+        <div class="relations">
+            <h3>Relații între tabele</h3>
+            <div class="rel"><strong>glpi_tickets.itilcategories_id</strong> → <strong>glpi_itilcategories.id</strong> (N:1) — fiecare tichet aparține unei categorii</div>
+            <div class="rel"><strong>glpi_tickets.locations_id</strong> → <strong>glpi_locations.id</strong> (N:1) — fiecare tichet are o locație</div>
+            <div class="rel"><strong>glpi_tickets.users_id_recipient</strong> → <strong>glpi_users.id</strong> (N:1) — fiecare tichet are un solicitant</div>
+            <div class="rel"><strong>glpi_users.profiles_id</strong> → <strong>glpi_profiles.id</strong> (N:1) — fiecare utilizator are un rol</div>
+            <div class="rel"><strong>glpi_locations.locations_id</strong> → <strong>glpi_locations.id</strong> (auto-referință) — ierarhie clădire → sală</div>
+        </div>
+
+        <div class="note">
+            Categorii configurate: IT (id=1), Retea (id=2), Administrativ (id=3) · 35 locații UVT · 5 roluri: Super-Admin, Admin, Technician, Observer, Self-Service
+        </div>
+    </div>
+</body>
+</html>
